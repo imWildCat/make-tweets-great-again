@@ -2,14 +2,15 @@
     <div>
         <div id="container">
             <h1>Make tweets great again!</h1>
-            <div class="preview" ref="container">
-                <tweet ref="tweet" />
-            </div>
-            <data-form />
-            <el-button icon="delete" v-on:click="reset">Reset</el-button>
-            <el-button type="primary" icon="document" v-on:click="save">Save as image</el-button>
+            <p><a href="http://make-tweets-great-again.catlab.me">http://make-tweets-great-again.catlab.me</a>
+                <p>
+                    <div class="preview" ref="container">
+                        <tweet ref="tweet" />
+                    </div>
+                    <data-form />
+                    <el-button icon="delete" v-on:click="reset">Reset</el-button>
+                    <el-button type="primary" icon="document" v-on:click="save">Save as image</el-button>
         </div>
-
     </div>
 </template>
 
@@ -51,6 +52,8 @@
 <style>
     body {
         background-color: #F5F8FA;
+        padding: 0;
+        margin: 0;
     }
     .message {
       color: blue;
@@ -65,6 +68,9 @@
         margin: 0 auto;
     }
     h1 {
+        text-align: center;
+    }
+    p {
         text-align: center;
     }
 </style>

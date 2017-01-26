@@ -13,7 +13,7 @@
             </el-form-item>
             <el-form-item label="Time">
                 <el-col :span="14">
-                    <el-input v-model="time" placeholder="realDonaldTrump"></el-input>
+                    <el-input v-model="time" placeholder="0"></el-input>
                 </el-col>
                 <el-col class="second" :span="9">
                     <el-select v-model="timeUnit" placeholder="Unit">
