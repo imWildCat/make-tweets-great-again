@@ -68,11 +68,9 @@
                 this.updateAvatar();
                 return avatar;
             },
-            time() { console.log('newtime'); return this.getState().time },
+            time() { return this.getState().time },
             timeUnit() { return this.getState().timeUnit.substr(0, 1); },
-            reply() {
-                return this.simplifyNumber(this.getState().reply);
-            },
+            reply() { return this.simplifyNumber(this.getState().reply); },
             retweet() { return this.simplifyNumber(this.getState().retweet); },
             like() { return this.simplifyNumber(this.getState().like); },
         }

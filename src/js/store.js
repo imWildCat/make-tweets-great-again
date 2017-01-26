@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import qs from 'qs';
 
 Vue.use(Vuex);
 
 // root state object.
 // each Vuex instance is just a single state tree.
-const state = {
+const hashObj = qs.parse(location.hash);
+const state = Object.assign({}, {
     nickname: 'Donald J. Trump',
     atName: 'realDonaldTrump',
     content: 'Make America great again!',
@@ -15,7 +17,8 @@ const state = {
     reply: getRandomInt(500, 19000),
     retweet: getRandomInt(500, 50000),
     like: getRandomInt(300, 5000),
-};
+}, hashObj);
+
 
 // mutations are operations that actually mutates the state.
 // each mutation handler gets the entire state tree as the
@@ -24,27 +27,35 @@ const state = {
 // for debugging purposes.
 const mutations = {
     updateNickname(state, nickname) {
+        saveHash();
         state.nickname = nickname;
     },
     updateAtName(state, atName) {
+        saveHash();
         state.atName = atName;
     },
     updateContent(state, content) {
+        saveHash();
         state.content = content;
     },
     updateAvatar(state, avatar) {
+        saveHash();
         state.avatar = avatar;
     },
     updateTime(state, time) {
+        saveHash();
         state.time = time;
     },
     updateTimeUnit(state, timeUnit) {
+        saveHash();
         state.timeUnit = timeUnit;
     },
     updateReply(state, reply) {
+        saveHash();
         state.reply = reply;
     },
     updateLike(state, like) {
+        saveHash();
         state.like = like;
     },
 };
@@ -71,3 +82,8 @@ export default new Vuex.Store({
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+function saveHash() {
+    const s = qs.stringify(state);
+    history.pushState(null, null, `#${s}`);
+}

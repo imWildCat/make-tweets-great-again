@@ -9,6 +9,7 @@
                 <tweet ref="tweet" />
             </div>
             <data-form />
+            <el-button icon="delete" v-on:click="reset">Reset</el-button>
             <el-button type="primary" icon="document" v-on:click="save">Save as image</el-button>
         </div>
 
@@ -34,7 +35,6 @@
 
         methods: {
             save() {
-                console.log(this.$refs.container);
                 html2canvas(this.$refs.container, {
                     onrendered: (canvas) => {
                         console.log(canvas);
@@ -42,6 +42,9 @@
                     }
                 });
             },
+            reset() {
+                history.pushState(null, null, `/`);
+            }
         },
     }
 
