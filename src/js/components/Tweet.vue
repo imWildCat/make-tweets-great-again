@@ -49,6 +49,14 @@
                     self.$refs.avatar.setAttribute('src', base64Img);
                 });
             },
+            simplifyNumber(num) {
+                const n = Number(num);
+                if (n >= 1000) {
+                    return (n / 1000).toFixed(1) + 'K';
+                } else {
+                    return n;
+                }
+            }
         },
         computed: {
             nickname() { return this.getState().nickname },
@@ -62,9 +70,11 @@
             },
             time() { console.log('newtime'); return this.getState().time },
             timeUnit() { return this.getState().timeUnit.substr(0, 1); },
-            reply() { return this.getState().reply },
-            retweet() { return this.getState().retweet },
-            like() { return this.getState().like },
+            reply() {
+                return this.simplifyNumber(this.getState().reply);
+            },
+            retweet() { return this.simplifyNumber(this.getState().retweet); },
+            like() { return this.simplifyNumber(this.getState().like); },
         }
     }
 </script>
