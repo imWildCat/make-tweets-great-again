@@ -9,7 +9,8 @@
   "scripts": {
     "start": "yarn run -- webpack-dev-server --inline --hot",
     "clean": "rm -rf build",
-    "build": "npm run clean && NODE_ENV=production webpack"
+    "build": "yarn run clean && NODE_ENV=production webpack",
+    "license": "rm OTHER_LICENSES; yarn run license-checker > OTHER_LICENSES"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
@@ -20,6 +21,7 @@
     "babel-preset-stage-0": "^6.22.0",
     "css-loader": "^0.26.1",
     "html-webpack-plugin": "^2.26.0",
+    "license-checker": "^8.0.3",
     "source-map-loader": "^0.1.6",
     "style-loader": "^0.13.1",
     "vue-hot-reload-api": "^2.0.8",
