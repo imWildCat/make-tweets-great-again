@@ -7,7 +7,9 @@
   "author": "Michael Chong (wildcat.name@gmail.com)",
   "license": "MIT",
   "scripts": {
-    "start": "yarn run -- webpack-dev-server --inline --hot"
+    "start": "yarn run -- webpack-dev-server --inline --hot",
+    "clean": "rm -rf build",
+    "build": "npm run clean && NODE_ENV=production webpack"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
