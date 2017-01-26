@@ -7,7 +7,7 @@ Vue.use(Vuex);
 // root state object.
 // each Vuex instance is just a single state tree.
 const hashObj = qs.parse(location.hash);
-const state = Object.assign({}, {
+const defaultState = {
     nickname: 'Donald J. Trump',
     atName: 'realDonaldTrump',
     content: 'Make America great again!',
@@ -17,7 +17,8 @@ const state = Object.assign({}, {
     reply: getRandomInt(500, 19000),
     retweet: getRandomInt(500, 50000),
     like: getRandomInt(300, 5000),
-}, hashObj);
+};
+const state = Object.assign({}, defaultState, hashObj);
 
 
 // mutations are operations that actually mutates the state.
@@ -54,6 +55,10 @@ const mutations = {
         saveHash();
         state.reply = reply;
     },
+    updateRetweet(state, retweet) {
+        saveHash();
+        state.retweet = retweet;
+    },
     updateLike(state, like) {
         saveHash();
         state.like = like;
@@ -63,6 +68,12 @@ const mutations = {
 // actions are functions that causes side effects and can involve
 // asynchronous operations.
 const actions = {
+    resetState() {
+        Object.assign(state, defaultState);
+        setTimeout(() => {
+            history.pushState(null, null, '/');
+        }, (10));
+    },
 };
 
 // getters are functions

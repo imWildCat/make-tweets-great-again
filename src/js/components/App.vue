@@ -1,8 +1,5 @@
 <template>
     <div>
-
-
-
         <div id="container">
             <h1>Make tweets great again!</h1>
             <div class="preview" ref="container">
@@ -43,7 +40,7 @@
                 });
             },
             reset() {
-                history.pushState(null, null, `/`);
+                this.$store.dispatch('resetState')
             }
         },
     }
@@ -52,13 +49,15 @@
 </script>
 
 <style>
+    body {
+        background-color: #F5F8FA;
+    }
     .message {
       color: blue;
     }
     .preview {
         max-width: 550px;
         min-width: 300px;
-        background: white;
         padding: 10px 5px 10px 5px;
     }
     #container {
