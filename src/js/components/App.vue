@@ -1,14 +1,15 @@
 <template>
     <div>
 
-        <button v-on:click="save">Save</button>
+
 
         <div id="container">
             <h1>Make tweets great again!</h1>
-            <data-form />
             <div class="preview" ref="container">
                 <tweet ref="tweet" />
             </div>
+            <data-form />
+            <el-button type="primary" icon="document" v-on:click="save">Save as image</el-button>
         </div>
 
     </div>
